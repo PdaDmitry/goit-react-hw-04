@@ -1,0 +1,12 @@
+.galleryImage {
+    width: 350px;
+    height: 190px;
+    cursor: pointer;
+    border-radius: 6px;
+    object-fit: cover;
+    transition: transform 250ms ease-in-out;
+}
+
+.galleryImage:hover {
+    transform: scale(1.04);
+}

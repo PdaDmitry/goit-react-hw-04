@@ -1,0 +1,17 @@
+.contGallery {
+    width: 1440px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 auto;
+    background: #fff;
+    user-select: none;
+    padding: 0 50px;
+    justify-content: center;
+    margin-bottom: 20px;
+
+}
+
+.galleryItem {
+    width: calc((100% - 3*10px) / 4);
+}

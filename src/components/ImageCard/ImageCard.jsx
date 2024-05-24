@@ -1,3 +1,5 @@
+import css from './ImageCard.module.css';
+
 export default function ImageCard({
   data: {
     urls: { small },
@@ -6,7 +8,7 @@ export default function ImageCard({
 }) {
   return (
     <div>
-      <img src={small} alt={alt_description} />
+      <img className={css.galleryImage} src={small} alt={alt_description} />
     </div>
   );
 }
