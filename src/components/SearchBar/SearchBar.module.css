@@ -1,0 +1,10 @@
+.contHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.inputText {
+    margin-right: 5px;
+}

@@ -1,0 +1,12 @@
+.loaderCont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+}
+
+.loaderText {
+    font-size: 12px;
+    color: gray;
+}
