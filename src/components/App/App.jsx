@@ -6,7 +6,7 @@ import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import fetchPhotos from '../../api';
 
 import { useEffect, useState } from 'react';
-import { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import { nanoid } from 'nanoid';
 
 // import css from './App.module.css';
@@ -44,6 +44,17 @@ export default function App() {
           return [...prevImages, ...results];
         });
         setMaxPages(maxPages);
+        if (page === maxPages) {
+          toast.error(`We're sorry, but you've reached the end of search results!`, {
+            duration: 4000,
+            position: 'bottom-center',
+            style: {
+              background: 'orange',
+              color: 'black',
+            },
+          });
+          return;
+        }
       } catch (error) {
         setError(true);
         console.log(error);
