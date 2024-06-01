@@ -9,7 +9,7 @@ export default function SearchBar({ onSubmit }) {
 
     if (entryField === '') {
       toast.error('The form field must be filled in!', {
-        duration: 3000,
+        duration: 2000,
         position: 'top-center',
         style: {
           background: 'orange',

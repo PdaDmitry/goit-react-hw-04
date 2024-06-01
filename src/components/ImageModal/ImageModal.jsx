@@ -10,4 +10,3 @@ export default function ImageModal({
     </div>
   );
 }
-//className={css.galleryImage}

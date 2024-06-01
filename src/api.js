@@ -14,7 +14,6 @@ export default async function fetchPhotos(query, page) {
     },
   });
   const results = response.data.results;
-  // console.log(response);
   const maxPages = Math.ceil(response.data.total / per_page);
 
   return { results, maxPages };

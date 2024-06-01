@@ -22,6 +22,8 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
+    backgroundColor: 'transparent',
+    border: 'none',
   },
 };
 Modal.setAppElement('#root');
@@ -38,7 +40,7 @@ export default function App() {
   const [selectedImage, setSelectedImage] = useState(null); //initial state of the selected element for the modal window
 
   const openModal = image => {
-    setSelectedImage(image); //the element clicked on for the modal window is saved to the state
+    setSelectedImage(image); //the selected element is saved in the state for the modal window
     setModalIsOpen(true);
   };
 
@@ -71,6 +73,7 @@ export default function App() {
         setImages(prevImages => {
           return [...prevImages, ...results];
         });
+
         setMaxPages(maxPages);
         if (page === maxPages) {
           toast.error(`We're sorry, but you've reached the end of search results!`, {
@@ -113,12 +116,7 @@ export default function App() {
       {loading && <Loader />}
       {images.length > 0 && !loading && page < maxPages && <LoadMoreBtn onClick={handleLoadMore} />}
       <Toaster />
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-        // contentLabel="Example Modal"
-      >
+      <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles}>
         {modalIsOpen && <ImageModal item={selectedImage} />}
       </Modal>
     </div>
