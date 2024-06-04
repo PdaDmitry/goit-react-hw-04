@@ -15,6 +15,9 @@ import { nanoid } from 'nanoid';
 
 //styles for modal window
 const customStyles = {
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+  },
   content: {
     top: '50%',
     left: '50%',
