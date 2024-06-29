@@ -11,7 +11,6 @@ import ImageModal from '../ImageModal/ImageModal';
 import { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { nanoid } from 'nanoid';
-// import css from './App.module.css';
 
 //styles for modal window
 const customStyles = {
