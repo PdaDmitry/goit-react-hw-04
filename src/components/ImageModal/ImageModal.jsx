@@ -1,22 +1,5 @@
 import Modal from 'react-modal';
 
-const customStyles = {
-  overlay: {
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-  },
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: 'transparent',
-    border: 'none',
-  },
-};
-Modal.setAppElement('#root');
-
 export default function ImageModal({
   item: {
     urls: { regular },
@@ -24,9 +7,10 @@ export default function ImageModal({
   alt_description,
   isOpen,
   onRequestClose,
+  style,
 }) {
   return (
-    <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyles}>
+    <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={style}>
       <img src={regular} alt={alt_description} />
     </Modal>
   );

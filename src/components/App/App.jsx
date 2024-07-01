@@ -9,6 +9,8 @@ import ImageModal from '../ImageModal/ImageModal';
 import { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { nanoid } from 'nanoid';
+
+import Modal from 'react-modal';
 // import css from './App.module.css';
 
 //styles for modal window
@@ -118,7 +120,12 @@ export default function App() {
       {images.length > 0 && !loading && page < maxPages && <LoadMoreBtn onClick={handleLoadMore} />}
       <Toaster />
       {modalIsOpen && (
-        <ImageModal item={selectedImage} isOpen={modalIsOpen} onRequestClose={closeModal} />
+        <ImageModal
+          item={selectedImage}
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={customStyles}
+        />
       )}
     </div>
   );
