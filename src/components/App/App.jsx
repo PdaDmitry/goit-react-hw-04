@@ -9,6 +9,25 @@ import ImageModal from '../ImageModal/ImageModal';
 import { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { nanoid } from 'nanoid';
+// import css from './App.module.css';
+
+//styles for modal window
+const customStyles = {
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+  },
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    backgroundColor: 'transparent',
+    border: 'none',
+  },
+};
+Modal.setAppElement('#root');
 
 export default function App() {
   const [query, setQuery] = useState(''); //input element value state
