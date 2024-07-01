@@ -4,32 +4,11 @@ import Loader from '../Loader/Loader';
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import fetchPhotos from '../../api';
-
-import Modal from 'react-modal';
 import ImageModal from '../ImageModal/ImageModal';
 
 import { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { nanoid } from 'nanoid';
-// import css from './App.module.css';
-
-//styles for modal window
-const customStyles = {
-  overlay: {
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-  },
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: 'transparent',
-    border: 'none',
-  },
-};
-Modal.setAppElement('#root');
 
 export default function App() {
   const [query, setQuery] = useState(''); //input element value state
@@ -48,8 +27,8 @@ export default function App() {
   };
 
   const closeModal = () => {
-    setModalIsOpen(false);
     setSelectedImage(null);
+    setModalIsOpen(false);
   };
 
   const searchImages = async newQuery => {
@@ -80,7 +59,7 @@ export default function App() {
         setMaxPages(maxPages);
         if (page === maxPages) {
           toast.error(`We're sorry, but you've reached the end of search results!`, {
-            duration: 4000,
+            duration: 3000,
             position: 'bottom-center',
             style: {
               background: 'orange',
@@ -91,7 +70,7 @@ export default function App() {
         } else if (results.length === 0) {
           setImages([]);
           toast.error(`We're sorry, but no results were found for your request...`, {
-            duration: 4000,
+            duration: 3000,
             position: 'top-center',
             style: {
               background: 'orange',
@@ -119,9 +98,12 @@ export default function App() {
       {loading && <Loader />}
       {images.length > 0 && !loading && page < maxPages && <LoadMoreBtn onClick={handleLoadMore} />}
       <Toaster />
-      <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles}>
-        {modalIsOpen && <ImageModal item={selectedImage} />}
-      </Modal>
+      {modalIsOpen && (
+        <ImageModal item={selectedImage} isOpen={modalIsOpen} onRequestClose={closeModal} />
+      )}
     </div>
   );
 }
+// <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles}>
+// {modalIsOpen && <ImageModal item={selectedImage} />}
+// </Modal>

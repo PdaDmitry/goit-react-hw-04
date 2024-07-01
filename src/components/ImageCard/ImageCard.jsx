@@ -5,10 +5,11 @@ export default function ImageCard({
     urls: { small },
     alt_description,
   },
+  onClick,
 }) {
   return (
     <div>
-      <img className={css.galleryImage} src={small} alt={alt_description} />
+      <img className={css.galleryImage} src={small} alt={alt_description} onClick={onClick} />
     </div>
   );
 }
